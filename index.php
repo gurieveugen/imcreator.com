@@ -9,6 +9,7 @@
 <?php 
 GLOBAL $TO; 
 $socialshare = $GLOBALS['socialshare'];
+error_reporting(E_ALL);
 ?>
 <!-- main -->
 <div id="main" class="main-blog">	
@@ -28,21 +29,8 @@ $socialshare = $GLOBALS['socialshare'];
 		</div>
 	</div>
 	<div class="blog-bar">
-		<?php get_top_menu_child(); ?>
-		<!-- <ul class="blog-links">
-			<li><a href="#">Resources</a></li>
-			<li><a href="#">Marketing/SEO</a></li>
-			<li><a href="#">Design Tips</a></li>
-			<li><a href="#">Client Spotlight</a></li>
-			<li><a href="#">More</a></li>
-		</ul> -->
-		<?php echo $GLOBALS['socialshare']->getButtons(); ?>
-		<!-- <ul class="socials">
-			<li><a target="_blank" onclick="click_facebook(this); return false;" href="http://www.facebook.com/sharer.php?u=<?php echo urlencode(get_bloginfo('url')); ?>&t=<?php wp_title('|',true,'right'); ?>&src=sp"><img src="<?php echo TDU; ?>/images/ico-facebook.png" alt=""></a><span>32</span></li>
-			<li><a target="_blank" href="#"><img src="<?php echo TDU; ?>/images/ico-twitter.png" alt=""></a><span>263</span></li>
-			<li><a target="_blank" href="#"><img src="<?php echo TDU; ?>/images/ico-google.png" alt=""></a><span>123</span></li>
-			<li><a target="_blank" href="#"><img src="<?php echo TDU; ?>/images/ico-in.png" alt=""></a><span>1234</span></li>
-		</ul> -->
+		<?php get_top_menu_child(); ?>		
+		<?php echo $socialshare->getButtons(); ?>
 	</div>
 	
 	<div class="posts-holder">		

@@ -95,17 +95,13 @@ else
 					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
 				} ?>
 				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), $GLOBALS['socialshare']::SMALL); ?>
-			<!-- <ul class="socials mini">
-				<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-facebook-s.png" alt=""></a><span>1.3k</span></li>
-				<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-twitter-s.png" alt=""></a><span>263</span></li>
-				<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-google-s.png" alt=""></a><span>123</span></li>
-				<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-in-s.png" alt=""></a><span>1234</span></li>
-			</ul> -->
+			<?php 
+			var_dump('hellow');
+			var_dump($socialshare->getButtons());
+			// echo $GLOBALS['socialshare']->getButtons(get_permalink(), $GLOBALS['socialshare']::SMALL); 
+			?>			
 			<div class="entry-content">
-			<?php
-			//$cont = get_the_excerpt();
-			//if (!$cont)
+			<?php			
 			$cont = short_content(get_the_content());
 			echo '<p><a href="'.get_permalink().'" class="content-link">'.$cont.'</a></p>';
 			?>
