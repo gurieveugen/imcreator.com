@@ -34,7 +34,7 @@ error_reporting(E_ALL);
 	</div>
 	
 	<div class="posts-holder">		
-		<? include("loop.php"); ?>	
+		<?php get_template_part('loop'); ?>
 	</div>
 	
 </div>

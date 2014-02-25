@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * @package WordPress
@@ -37,17 +36,11 @@ $title_container = 'h2';
 		<div class="post-socials-row">
 			<div class="center-wrap cf">
 				<h5 class="data-row"><a href="<?php echo home_url('/'); ?>">IMNOW</a> / <a href="<?php echo get_category_link($cat->cat_ID); ?>"><?php echo $cat->name; ?></a></h5>
-				<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), $GLOBALS['socialshare']::LARGE); ?>
+				<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 1); ?>
 			</div>
 		</div>
 		<h1><?php the_title(); ?></h1>
-		<span class="meta"><?php the_time('j.m.y'); ?> By <a href="<?php the_author_url(); ?>" target="_blank" ><?php the_author(); ?></a> <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-		<!-- <ul class="socials" id="s-sticky">
-			<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-facebook.png" alt=""></a><span>1.3k</span></li>
-			<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-twitter.png" alt=""></a><span>263</span></li>
-			<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-google.png" alt=""></a><span>123</span></li>
-			<li><a href="#"><img src="<?php echo TDU; ?>/images/ico-in.png" alt=""></a><span>1234</span></li>
-		</ul> -->
+		<span class="meta"><?php the_time('j.m.y'); ?> By <a href="<?php the_author_url(); ?>" target="_blank" ><?php the_author(); ?></a> <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>		
 		<div class="content">
 			<?php the_content(); ?>
 			<br>

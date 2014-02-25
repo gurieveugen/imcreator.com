@@ -95,11 +95,7 @@ else
 					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
 				} ?>
 				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-			<?php 
-			var_dump('hellow');
-			var_dump($socialshare->getButtons());
-			// echo $GLOBALS['socialshare']->getButtons(get_permalink(), $GLOBALS['socialshare']::SMALL); 
-			?>			
+			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2); ?>			
 			<div class="entry-content">
 			<?php			
 			$cont = short_content(get_the_content());
