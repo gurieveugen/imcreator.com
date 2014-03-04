@@ -47,14 +47,15 @@ $title_container = 'h2';
 			<div class="btn-red">IM LIVE</div>
 		</div>
 	</article>
-	<div class="promotions-section promotions-single">
+	<?php echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); ?>
+	<!-- <div class="promotions-section promotions-single">
 		<h3>PROMOTIONS</h3>
 		<div class="holder">
 			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-1.jpg" alt=""></a></div>
 			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-2.jpg" alt=""></a></div>
 			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-3.jpg" alt=""></a></div>
 		</div>
-	</div>
+	</div> -->
 	<h3 class="more-title">MORE</h3>
 	<div class="posts-holder">
 		<?php 		
