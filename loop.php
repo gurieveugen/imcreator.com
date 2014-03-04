@@ -66,14 +66,6 @@ else if ($i == 5)
 	$i = 0;
 	echo $GLOBALS['post_type_promo']->getPromoBlock();
 	?>
-	<!-- <div class="promotions-section">
-		<h3>PROMOTIONS</h3>
-		<div class="holder">
-			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-1.jpg" alt=""></a></div>
-			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-2.jpg" alt=""></a></div>
-			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-3.jpg" alt=""></a></div>
-		</div>
-	</div> -->
 	<?php
 }
 else
@@ -96,7 +88,7 @@ else
 					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
 				} ?>
 				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2); ?>			
+			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2, '', get_the_title()); ?>			
 			<div class="entry-content">
 			<?php			
 			$cont = short_content(get_the_content());
