@@ -64,7 +64,17 @@ if($i == 1)
 else if ($i == 5)
 {
 	$i = 0;
-	echo $GLOBALS['post_type_promo']->getPromoBlock();	
+	echo $GLOBALS['post_type_promo']->getPromoBlock();
+	?>
+	<!-- <div class="promotions-section">
+		<h3>PROMOTIONS</h3>
+		<div class="holder">
+			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-1.jpg" alt=""></a></div>
+			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-2.jpg" alt=""></a></div>
+			<div class="promo"><a href="#"><img src="<?php echo TDU; ?>/images/promo-3.jpg" alt=""></a></div>
+		</div>
+	</div> -->
+	<?php
 }
 else
 {
