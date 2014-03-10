@@ -445,7 +445,7 @@ function my_smart_search( $search, &$wp_query ) {
  
     return $search;
 }
-add_image_size( 'post_thumb', 550, 466, true ); 
+add_image_size( 'post_thumb', 550, 466, false ); 
 add_filter( 'posts_search', 'my_smart_search', 500, 2 );
 
 add_filter('wp_head', 'javascript_page');
