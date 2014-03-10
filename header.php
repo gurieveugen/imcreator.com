@@ -126,7 +126,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 				}
 			});
 		});
-		</script>
+		</script>		
 		<?php endif; ?>
 	</head>
 	<body <? body_class(); ?>>

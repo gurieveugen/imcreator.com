@@ -5,7 +5,7 @@
  */
 ?>
 <?php 
-global $title_container;
+global $title_container, $wp_query;
 if($title_container == "")
 {
 	$title_container = "h2";
@@ -25,6 +25,19 @@ if($title_container == "")
 <!-- posts -->
 <?php 
 $i = 0;
+
+// $start = microtime(true);
+
+// $posts = get_posts($wp_query->query_vars);
+// foreach ($posts as $key => $value) 
+// {
+// 	$urls[$value->ID] = get_permalink($value->ID);
+// }
+// $GLOBALS['socialshare']->initializeCounts($urls);
+// var_dump($urls);
+
+// $time = microtime(true) - $start;
+// printf('Скрипт выполнялся %.4F сек.', $time);
 
 while ( have_posts() ) : the_post(); 
 $i++;
@@ -49,9 +62,6 @@ if($i == 1)
 					} ?>
 					 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
 				<?php
-				/*$cont = get_the_excerpt();
-				if (!$cont) $cont = short_content(get_the_content(), 400);
-				*/
 				$cont = short_content(get_the_content(), 250);
 				?>
 				<p><?php echo $cont; ?></p>
@@ -71,7 +81,7 @@ else if ($i == 5)
 else
 {
 	?>
-	<article class="hentry">
+	<article class="hentry <?php echo getLoopRand(); ?>" data-url="<?php echo get_permalink(); ?>">
 		<?php
 		if(has_post_thumbnail())
 		{
@@ -88,7 +98,7 @@ else
 					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
 				} ?>
 				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2, '', get_the_title()); ?>			
+			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2, '', get_the_title()); ?>	
 			<div class="entry-content">
 			<?php			
 			$cont = short_content(get_the_content());

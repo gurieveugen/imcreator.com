@@ -452,7 +452,6 @@ add_filter('wp_head', 'javascript_page');
 add_action('wp_ajax_get_more_posts', 'getMorePostsAJAX');
 add_action('wp_ajax_nopriv_get_more_posts', 'getMorePostsAJAX');
 
-
 // =========================================================
 // REUIRE
 // =========================================================
@@ -501,27 +500,34 @@ function javascript_page()
 	?>
 	<script type="text/javascript">
 	    $(document).ready(function() {
-		var page_number = 2;
+		var page_number = 3;
 		var busy        = false;   
 	    
 	    $(window).bind('scroll', function(e) 
 	    {
-	        if($(window).scrollTop() + $(window).height() > $(document).height() - 950 && !busy) 
+	        if($(window).scrollTop() + $(window).height() > $(document).height() - 1000 && !busy) 
 	        {	        	
-	            busy = true;
-	            $.post('<?php bloginfo('siteurl') ?>/wp-admin/admin-ajax.php?action=get_more_posts', 
+	            busy = true;	            
+
+	            jQuery.ajax(
 	            {
-					pagenumber: page_number,
-					cat: '<?php echo $wp_query->query_vars['category_name']; ?>'
-	            }, 
-	            function(data) 
-	            {
-					if(data != "")
-					{ 
-						busy        = false;
-						page_number += 1;
-					    jQuery('.posts-holder').html(jQuery('.posts-holder').html() + data);
-					}
+	                type: "POST",
+	                dataType: 'JSON',
+	                url: "<?php bloginfo('siteurl') ?>/wp-admin/admin-ajax.php?action=get_more_posts",
+	                data: {
+	                	pagenumber: page_number,
+	                	cat: '<?php echo $wp_query->query_vars['category_name']; ?>'
+	                },                                     
+	                success: function(response)
+	                {
+	                	if(response.html != "")
+	                	{
+                			busy        = false;
+                			page_number += 1;
+                		    jQuery('.posts-holder').html(jQuery('.posts-holder').html() + response.html);
+                		    getCounts('.' + response.loop);            		    
+	                	}
+	                }
 	            });
 	        }
 	    });
@@ -532,18 +538,51 @@ function javascript_page()
 }
 
 function getMorePostsAJAX()
-{
+{	
 	global $wp_query;
 	$paged = max(1, $_POST['pagenumber']);
 	$cat   = isset($_POST['cat']) ? $_POST['cat'] : '';
 	$args  = array(
 		'posts_per_page' => 5, 
 		'paged'          => $paged,
+		'post_status'    => 'publish',
 		'category_name'  => $cat);
 	
+	srand(make_seed());
+	$randval = rand();
+
+	$GLOBALS['loop_rand'] = $randval;
+
 	query_posts($args);
 	if($paged > $wp_query->max_num_pages) die();
-	get_template_part('loop');
+	$arr['html'] = load_template_part('loop');
+	$arr['loop'] = getLoopRand();
+	echo json_encode($arr);
 	die();
 }
 
+function make_seed()
+{
+    list($usec, $sec) = explode(' ', microtime());
+    return (float) $sec + ((float) $usec * 100000);
+}
+
+function getLoopRand()
+{
+	return isset($GLOBALS['loop_rand']) ? $GLOBALS['loop_rand'] : 666;
+}
+
+/**
+ * Get tamplate part to variable
+ * @param  string $template_name
+ * @param  string $part_name    
+ * @return string               
+ */
+function load_template_part($template_name, $part_name = null) 
+{
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+}

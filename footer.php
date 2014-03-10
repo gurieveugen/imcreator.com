@@ -773,11 +773,6 @@ text-decoration: none;
 </div>
 <? wp_footer(); ?>
 
-
-
-
-
-
 <!-- One Analytics: 
 ReTargetting via Google Analytics is enabled by running dc.js instead of ga.js
 However, dc.js is an AdWords code that is disabled by AdBlockers

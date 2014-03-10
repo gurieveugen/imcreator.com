@@ -8,7 +8,6 @@
 
 <?php 
 GLOBAL $TO; 
-$socialshare = $GLOBALS['socialshare'];
 error_reporting(E_ALL);
 ?>
 <!-- main -->

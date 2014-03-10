@@ -61,7 +61,10 @@ $title_container = 'h2';
 		}
 		
 		query_posts(array('category_name' => $all_cats_str, 'post__not_in' => array(get_the_ID())));
-		include("loop.php"); 
+		if(have_posts())
+		{
+			include("loop.php"); 
+		}
 		?>	
 	</div>
 </div>
