@@ -127,9 +127,12 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 			});
 		});
 		</script>		
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5316dc2271b78736"></script>
 		<?php endif; ?>
 	</head>
 	<body <? body_class(); ?>>
+
 		<!-- wrapper -->
 		<div id="wrapper">
 			<div class="w1">
