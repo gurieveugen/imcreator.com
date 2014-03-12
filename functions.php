@@ -456,6 +456,8 @@ add_action('wp_ajax_nopriv_get_more_posts', 'getMorePostsAJAX');
 // REUIRE
 // =========================================================
 require_once 'includes/post_type_promo.php';
+require_once 'includes/page_theme_options.php';
+require_once 'includes/meta_box_post_options.php';
 
 /**
  * Get all post categories
