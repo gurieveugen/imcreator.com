@@ -72,6 +72,8 @@ class GCOptionsPage{
 
         add_settings_field('default_facebook_page', __('Default Facebook Page'), array($this, 'default_facebook_page_callback'), __FILE__, 'default_settings');
         add_settings_field('default_twitter_username', __('Default twitter user name'), array($this, 'default_twitter_username_callback'), __FILE__, 'default_settings');        
+        add_settings_field('default_google_plus', __('Default google plus'), array($this, 'default_google_plus_callback'), __FILE__, 'default_settings');        
+        add_settings_field('default_linkedin', __('Default linkedin URL'), array($this, 'default_linkedin_callback'), __FILE__, 'default_settings');        
     }
 
     /**
@@ -85,6 +87,8 @@ class GCOptionsPage{
 
         if(isset($input['default_facebook_page'])) $new_input['default_facebook_page']       = strip_tags($input['default_facebook_page']);
         if(isset($input['default_twitter_username'])) $new_input['default_twitter_username'] = strip_tags($input['default_twitter_username']);
+        if(isset($input['default_google_plus'])) $new_input['default_google_plus'] = strip_tags($input['default_google_plus']);
+        if(isset($input['default_linkedin'])) $new_input['default_linkedin'] = strip_tags($input['default_linkedin']);
 
         return $new_input;
     }
@@ -103,6 +107,22 @@ class GCOptionsPage{
     public function default_twitter_username_callback()
     {
         printf('<input type="text" id="default_twitter_username" name="gcoptions[default_twitter_username]" value="%s" />', isset($this->options['default_twitter_username']) ? esc_attr($this->options['default_twitter_username']) : '');
+    }
+
+    /** 
+     * Get the settings option array and print one of its values
+     */
+    public function default_google_plus_callback()
+    {
+        printf('<input type="text" id="default_google_plus" name="gcoptions[default_google_plus]" value="%s" />', isset($this->options['default_google_plus']) ? esc_attr($this->options['default_google_plus']) : '');
+    }
+
+    /** 
+     * Get the settings option array and print one of its values
+     */
+    public function default_linkedin_callback()
+    {
+        printf('<input type="text" id="default_linkedin" name="gcoptions[default_linkedin]" value="%s" />', isset($this->options['default_linkedin']) ? esc_attr($this->options['default_linkedin']) : '');
     }
 }
 // =========================================================

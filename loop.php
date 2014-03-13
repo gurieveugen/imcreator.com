@@ -26,18 +26,6 @@ if($title_container == "")
 <?php 
 $i = 0;
 
-// $start = microtime(true);
-
-// $posts = get_posts($wp_query->query_vars);
-// foreach ($posts as $key => $value) 
-// {
-// 	$urls[$value->ID] = get_permalink($value->ID);
-// }
-// $GLOBALS['socialshare']->initializeCounts($urls);
-// var_dump($urls);
-
-// $time = microtime(true) - $start;
-// printf('Скрипт выполнялся %.4F сек.', $time);
 
 while ( have_posts() ) : the_post(); 
 $i++;
@@ -80,6 +68,7 @@ else if ($i == 5)
 }
 else
 {
+
 	?>
 	<article class="hentry <?php echo getLoopRand(); ?>" data-url="<?php echo get_permalink(); ?>">
 		<?php
@@ -98,7 +87,7 @@ else
 					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
 				} ?>
 				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
-			<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 2, '', get_the_title()); ?>	
+			<?php echo $GLOBALS['socialshare']->getSocials(get_permalink(), 'mini'); ?>	
 			<div class="entry-content">
 			<?php			
 			$cont = short_content(get_the_content());

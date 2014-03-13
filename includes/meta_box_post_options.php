@@ -42,22 +42,26 @@ class PostOptions{
 
 		wp_nonce_field( 'post_options_box', 'post_options_box_nonce' );
 		?>		
-		<p>
-			<label for="post_options_external_url"><?php _e('Facebook'); ?>:</label>
-			<input type="text" name="post_options[facebook]" id="post_options_facebook" class="w100" style="width: 60%;" value="<?php echo $facebook; ?>">
-		</p>
-		<p>
-			<label for="post_options_external_url"><?php _e('Twitter'); ?>:</label>
-			<input type="text" name="post_options[twitter]" id="post_options_twitter" class="w100" style="width: 60%;" value="<?php echo $twitter; ?>">
-		</p>
-		<p>
-			<label for="post_options_external_url"><?php _e('Google Plus'); ?>:</label>
-			<input type="text" name="post_options[google_plus]" id="post_options_google_plus" class="w100" style="width: 60%;" value="<?php echo $google_plus; ?>">
-		</p>
-		<p>
-			<label for="post_options_external_url"><?php _e('Linked IN'); ?>:</label>
-			<input type="text" name="post_options[linkedin]" id="post_options_linkedin" class="w100" style="width: 60%;" value="<?php echo $linkedin; ?>">
-		</p>
+		<table>
+			<tbody>
+				<tr>
+					<td><label for="post_options_external_url"><?php _e('Facebook'); ?>:</label></td>
+					<td><input style="width: 100%" type="text" name="post_options[facebook]" id="post_options_facebook" class="w100" style="width: 60%;" value="<?php echo $facebook; ?>"></td>
+				</tr>
+				<tr>
+					<td><label for="post_options_external_url"><?php _e('Twitter'); ?>:</label></td>
+					<td><input style="width: 100%" type="text" name="post_options[twitter]" id="post_options_twitter" class="w100" style="width: 60%;" value="<?php echo $twitter; ?>"></td>
+				</tr>
+				<tr>
+					<td><label for="post_options_external_url"><?php _e('Google Plus'); ?>:</label></td>
+					<td><input style="width: 100%" type="text" name="post_options[google_plus]" id="post_options_google_plus" class="w100" style="width: 60%;" value="<?php echo $google_plus; ?>"></td>
+				</tr>
+				<tr>
+					<td><label for="post_options_external_url"><?php _e('Linked IN'); ?>:</label></td>
+					<td><input style="width: 100%" type="text" name="post_options[linkedin]" id="post_options_linkedin" class="w100" style="width: 60%;" value="<?php echo $linkedin; ?>"></td>
+				</tr>
+			</tbody>
+		</table>		
 		<?php
 	}
 
@@ -96,6 +100,16 @@ class PostOptions{
 		}
 
 		return $post_id;
+	}
+
+	/**
+	 * Get post options
+	 * @param  integer $id 
+	 * @return array     
+	 */
+	public function getOptions($id)
+	{
+		return get_post_meta($id, 'post_options', true);	
 	}
 }
 

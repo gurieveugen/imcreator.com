@@ -70,8 +70,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 			});
 			add_height();
 			jQuery(window).scroll(function() {
-                if ( jQuery(this).scrollTop() >= (jQuery('.images-box').position().top + jQuery('.images-box').height() - (jQuery(window).height() / 2)) && imgLoading)  {
-				//if ((jQuery(document).height() - jQuery(window).height() < jQuery(window).scrollTop() + 1200) && imgLoading)  {
+                //if ( jQuery(this).scrollTop() >= (jQuery('.images-box').position().top + jQuery('.images-box').height() - (jQuery(window).height() / 2)) && imgLoading)  {
+				if ((jQuery(document).height() - jQuery(window).height() < jQuery(window).scrollTop() + 1200) && imgLoading)  {
                     imgLoading = false;
 					++paged;                                       
                     jQuery('#ajax-loading').show();					
@@ -96,7 +96,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 							}
 							?>	
 							page: paged,
-							<?php if ( strlen( $_GET['s'] ) ) echo "s_val: '". $_GET['s'] ."'" ?>
+							<?php if ( isset($_GET['s']) && strlen( $_GET['s'] ) ) echo "s_val: '". $_GET['s'] ."'" ?>
 						},
 						success: function(data) {                            
 							if (data.length > 0) {
@@ -127,8 +127,6 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 			});
 		});
 		</script>		
-		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5316dc2271b78736"></script>
 		<?php endif; ?>
 	</head>
 	<body <? body_class(); ?>>

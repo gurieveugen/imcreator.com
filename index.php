@@ -9,6 +9,16 @@
 <?php 
 GLOBAL $TO; 
 error_reporting(E_ALL);
+
+// =========================================================
+// INITIALIZE SOCIAL URLS
+// =========================================================
+$options         = $GLOBALS['gcoptions']->getAllOptions();
+$default_socials = array(
+	'facebook'    => $options['default_facebook_page'],
+	'twitter'     => $options['default_twitter_username'],
+	'google_plus' => $options['default_google_plus'],
+	'linkedin'    => $options['default_linkedin']);
 ?>
 <!-- main -->
 <div id="main" class="main-blog">	
@@ -29,7 +39,7 @@ error_reporting(E_ALL);
 	</div>
 	<div class="blog-bar">
 		<?php get_top_menu_child(); ?>		
-		<?php echo $socialshare->getButtons(); ?>
+		<?php echo $socialshare->getButtons($default_socials); ?>
 	</div>
 	
 	<div class="posts-holder">		

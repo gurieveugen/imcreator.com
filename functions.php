@@ -457,7 +457,6 @@ add_action('wp_ajax_nopriv_get_more_posts', 'getMorePostsAJAX');
 // =========================================================
 require_once 'includes/post_type_promo.php';
 require_once 'includes/page_theme_options.php';
-require_once 'includes/meta_box_post_options.php';
 
 /**
  * Get all post categories
@@ -587,4 +586,21 @@ function load_template_part($template_name, $part_name = null)
     $var = ob_get_contents();
     ob_end_clean();
     return $var;
+}
+
+/**
+ * Remove empty elements from array
+ * @param  array $arr 
+ * @return array      
+ */
+function removeEmptyElements($arr)
+{
+	if(is_array($arr))
+	{
+		$empty_elements = array_keys($arr, "");
+		foreach ($empty_elements as $e) unset($arr[$e]);
+		return $arr;	
+	}
+	return null;
+	
 }

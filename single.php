@@ -36,7 +36,18 @@ $title_container = 'h2';
 		<div class="post-socials-row">
 			<div class="center-wrap cf">
 				<h5 class="data-row"><a href="<?php echo home_url('/'); ?>">IMNOW</a> / <a href="<?php echo get_category_link($cat->cat_ID); ?>"><?php echo $cat->name; ?></a></h5>
-				<?php echo $GLOBALS['socialshare']->getButtons(get_permalink(), 1, '', get_the_title()); ?>
+				<?php 
+				// =========================================================
+				// INITIALIZE SOCIAL URLS
+				// =========================================================
+				$options         = $GLOBALS['gcoptions']->getAllOptions();
+				$default_socials = array(
+					'facebook'    => $options['default_facebook_page'],
+					'twitter'     => $options['default_twitter_username'],
+					'google_plus' => $options['default_google_plus'],
+					'linkedin'    => $options['default_linkedin']);
+				
+				echo $GLOBALS['socialshare']->getButtons($default_socials); ?>
 			</div>
 		</div>
 		<h1><?php the_title(); ?></h1>
@@ -47,7 +58,10 @@ $title_container = 'h2';
 			<div class="btn-red">IM LIVE</div>
 		</div>
 	</article>
-	<?php echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); ?>	
+	<?php 
+
+	echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
+	?>	
 	<h3 class="more-title">MORE</h3>
 	<div class="posts-holder">
 		<?php 		
