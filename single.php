@@ -36,7 +36,7 @@ $title_container = 'h2';
 		<div class="post-socials-row">
 			<div class="center-wrap cf">
 				<h5 class="data-row"><a href="<?php echo home_url('/'); ?>">IMNOW</a> / <a href="<?php echo get_category_link($cat->cat_ID); ?>"><?php echo $cat->name; ?></a></h5>
-				<?php echo $GLOBALS['socialshare']->getSocialsBig(get_permalink()); ?>
+				<?php echo $GLOBALS['socialshare']->getSocialsBig(get_permalink(), get_the_title(get_the_ID())); ?>
 			</div>
 		</div>
 		<h1><?php the_title(); ?></h1>
