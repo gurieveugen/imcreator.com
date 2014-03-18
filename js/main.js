@@ -5,6 +5,7 @@ jQuery(document).ready(function($){
 	});
 	getCounts('.666');   
 	setLargeSocialsCount();
+	setSingleSocials('.big-socials');
 })
 
 function add_height() {

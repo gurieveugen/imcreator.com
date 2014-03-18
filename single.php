@@ -36,18 +36,7 @@ $title_container = 'h2';
 		<div class="post-socials-row">
 			<div class="center-wrap cf">
 				<h5 class="data-row"><a href="<?php echo home_url('/'); ?>">IMNOW</a> / <a href="<?php echo get_category_link($cat->cat_ID); ?>"><?php echo $cat->name; ?></a></h5>
-				<?php 
-				// =========================================================
-				// INITIALIZE SOCIAL URLS
-				// =========================================================
-				$options         = $GLOBALS['gcoptions']->getAllOptions();
-				$default_socials = array(
-					'facebook'    => $options['default_facebook_page'],
-					'twitter'     => $options['default_twitter_username'],
-					'google_plus' => $options['default_google_plus'],
-					'linkedin'    => $options['default_linkedin']);
-				
-				echo $GLOBALS['socialshare']->getButtons($default_socials); ?>
+				<?php echo $GLOBALS['socialshare']->getSocialsBig(get_permalink()); ?>
 			</div>
 		</div>
 		<h1><?php the_title(); ?></h1>
