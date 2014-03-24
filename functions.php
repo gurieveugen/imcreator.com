@@ -501,14 +501,13 @@ function javascript_page()
 	?>
 	<script type="text/javascript">
 	    $(document).ready(function() {
-		var page_number = 3;
-		var busy        = false;   
+		var page_number = 3;		
 	    
 	    $(window).bind('scroll', function(e) 
 	    {
-	        if($(window).scrollTop() + $(window).height() > $(document).height() - 1000 && !busy) 
+	        if($(window).scrollTop() + $(window).height() > $(document).height() - 1000 && !window.busy) 
 	        {	        	
-	            busy = true;	            
+	            window.busy = true;	            
 
 	            jQuery.ajax(
 	            {
@@ -523,7 +522,7 @@ function javascript_page()
 	                {
 	                	if(response.html != "")
 	                	{
-                			busy        = false;
+                			window.busy        = false;
                 			page_number += 1;
                 		    jQuery('.posts-holder').html(jQuery('.posts-holder').html() + response.html);
                 		    getCounts('.' + response.loop);            		    

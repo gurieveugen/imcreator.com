@@ -1,3 +1,5 @@
+var busy = false;   
+
 jQuery(document).ready(function($){
 	$('body.category .quote-post .text img').wrap('<div class="futured-image-holder"></div>');
 	$('body.category .quote-post .text .futured-image-holder').each(function(){
@@ -6,6 +8,13 @@ jQuery(document).ready(function($){
 	getCounts('.666');   
 	setLargeSocialsCount();
 	setSingleSocials('.big-socials');
+
+	jQuery('.btn-gotofooter').click(function(e){
+		window.busy = true;
+		var height = jQuery('html, body').height(); 
+		jQuery('html, body').animate({"scrollTop": height }, 'slow'); 
+		e.preventDefault();
+	});
 })
 
 function add_height() {
