@@ -82,11 +82,9 @@ article, aside, details, figcaption, figure, footer, header, nav, section, summa
 /* header */
 #header{
 	padding:0 5px 0 1px;
-	overflow:hidden;
 	height:596px;
 }
 #header .header-holder{
-	overflow:hidden;
 	width:100%;
 	padding:39px 0 18px;
 }
@@ -114,6 +112,7 @@ article, aside, details, figcaption, figure, footer, header, nav, section, summa
 #header ul.main-navigation li{
 	float:left;
 	margin-left:77px;
+	position: relative;
 }
 #header ul.main-navigation li a{
 	float:left;
@@ -122,6 +121,39 @@ article, aside, details, figcaption, figure, footer, header, nav, section, summa
 }
 #header ul.main-navigation li a:hover{
 	text-decoration:underline;
+}
+#header ul.main-navigation ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 20px;
+	left: -5px;
+	width: 150px;
+	border: 1px solid #000;
+	background: #fff;
+	display: none;
+}
+#header ul.main-navigation li:hover > ul{
+	display: block;
+}
+#header ul.main-navigation ul li{
+	float: none;
+	margin: 0;
+	border-top: 1px solid #000;
+}
+#header ul.main-navigation ul li:first-child{
+	border: none;
+}
+#header ul.main-navigation ul li a{
+	display: block;
+	padding: 2px 5px;
+	float: none;
+}
+#header ul.main-navigation ul li:hover > a,
+#header ul.main-navigation ul li.active > a{
+	background: #eee;
+	text-decoration: none;
 }
 #header .header-content{
 	padding:161px 0 0;
@@ -1373,6 +1405,7 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	float:left;
 	padding:0 10px;
 	border-left:1px solid #999;
+	position: relative;
 }
 .blog-links li:first-child{
 	padding-left:0;
@@ -1381,6 +1414,49 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 .blog-links a{
 	color:#000;
 }
+
+
+
+
+.blog-links ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 27px;
+	left: -5px;
+	z-index: 100;
+	width: 180px;
+	border: 1px solid #000;
+	background: #fff;
+	display: none;
+	font: 16px/19px 'helvetica_neueregular',Helvetica,Arial,sans-serif;
+}
+.blog-links li:hover > ul{
+	display: block;
+}
+.blog-links ul li{
+	float: none;
+	padding: 0;
+	border-left: none;
+	border-top: 1px solid #000;
+}
+.blog-links ul li:first-child{
+	border: none;
+}
+.blog-links ul li a{
+	display: block;
+	padding: 2px 5px;
+	float: none;
+}
+.blog-links ul li:hover > a,
+.blog-links ul li.active > a{
+	background: #eee;
+	text-decoration: none;
+}
+
+
+
 .blog-links h2{
 	margin:0 !important;
 	font:21px/27px 'helvetica_neueregular', Helvetica, Arial, sans-serif !important;
@@ -1711,7 +1787,9 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 .blog-bar:after,
 .promotions-section .holder:after,
 .posts-holder .hentry:after,
-.socials:after{
+.socials:after,
+#header:after,
+#header .header-holder:after{
 	content:'';
 	display:table;
 	clear:both;
