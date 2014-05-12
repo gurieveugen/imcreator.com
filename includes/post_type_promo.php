@@ -187,7 +187,7 @@ class PostTypePromo{
 
 		if($promotions)
 		{
-			$block = '<div class="promotions-section'.$class.'"><h3>PROMOTIONS</h3><div class="holder">';
+			$block = '<div class="promotions-section'.$class.'"><div class="holder">';
 			foreach ($promotions as $key => $value) 
 			{
 				$block.= '<div class="promo"><a href="'.$value->meta['external_url'].'">'.$value->img.'</a></div>';

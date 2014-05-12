@@ -505,7 +505,7 @@ function javascript_page()
 	    
 	    $(window).bind('scroll', function(e) 
 	    {
-	        if($(window).scrollTop() + $(window).height() > $(document).height() - 1000 && !window.busy) 
+	        if($(window).scrollTop() + $(window).height() > $(document).height() - 2000 && !window.busy) 
 	        {	        	
 	            window.busy = true;	            
 

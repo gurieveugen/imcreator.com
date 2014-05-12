@@ -71,7 +71,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 			add_height();
 			jQuery(window).scroll(function() {
                 //if ( jQuery(this).scrollTop() >= (jQuery('.images-box').position().top + jQuery('.images-box').height() - (jQuery(window).height() / 2)) && imgLoading)  {
-				if ((jQuery(document).height() - jQuery(window).height() < jQuery(window).scrollTop() + 1200) && imgLoading)  {
+				if ((jQuery(window).scrollTop() + jQuery(window).height() == jQuery(document).height()) && imgLoading)  {
                     imgLoading = false;
 					++paged;                                       
                     jQuery('#ajax-loading').show();					
