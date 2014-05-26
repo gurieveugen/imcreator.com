@@ -1561,6 +1561,9 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	width:600px;
 	text-transform:uppercase;
 }
+#main .hentry.featured-post .content h2.long{
+	font-size:56px;
+}
 .hentry.featured-post .content h2 a{
 	color:#000 !important;
 }
