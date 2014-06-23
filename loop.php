@@ -31,6 +31,9 @@ while ( have_posts() ) : the_post();
 $i++;
 if($i == 1)
 {
+	$title = get_the_title(get_the_id());
+	$count = count(explode(' ', $title));
+	$long  = $count > 10 ? 'long' : '';
 	?>
 	<article class="hentry featured-post full-width-post">
 		<?php
@@ -43,7 +46,8 @@ if($i == 1)
 		?>
 		<div class="center-wrap">
 			<div class="content">
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+				<h2 class="<?php echo $long; ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<span class="meta"><?php the_time('j.m.y'); ?> By
 					<?php if (get_the_author_url()) { ?>
 						<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
