@@ -43,14 +43,17 @@ $title_container = 'h2';
 		<span class="meta"><?php the_time('j.m.y'); ?> By <a href="<?php the_author_url(); ?>" target="_blank" ><?php the_author(); ?></a> <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>		
 		<div class="content">
 			<?php the_content(); ?>
+            <?php /* ?>
 			<br>
 			<div class="btn-red">IM LIVE</div>
+            <?php */ ?>
 		</div>
 	</article>
 	<?php 
 
 	echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
-	?>	
+	?>
+    <?php // comments_template( '', true ); ?>	
 	<h3 class="more-title">MORE</h3>
 	<div class="posts-holder">
 		<?php 		

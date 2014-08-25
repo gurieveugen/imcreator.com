@@ -7,7 +7,9 @@ jQuery(document).ready(function($){
 	});
 	getCounts('.666');   
 	setLargeSocialsCount();
-	setSingleSocials('.big-socials');
+    if (jQuery('.big-socials').length > 0) {
+	   setSingleSocials('.big-socials');
+    }
 
 	jQuery('.btn-gotofooter').click(function(e){
 		window.busy = true;

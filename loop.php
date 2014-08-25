@@ -33,7 +33,9 @@ if($i == 1)
 {
 	$title = get_the_title(get_the_id());
 	$count = count(explode(' ', $title));
-	$long  = $count > 10 ? 'long' : '';
+    $long  = '';
+	$long  = ( $count > 10 && $count < 15 ) ? 'long' : '';
+    $long  = $count >= 15 ? 'long2' : '';
 	?>
 	<article class="hentry featured-post full-width-post">
 		<?php

@@ -44,6 +44,8 @@ a:hover{
 }
 img{
 	border:0;
+	max-width: 100%;
+	height: auto;
 }
 article, aside, details, figcaption, figure, footer, header, nav, section, summary{
 	display:block;
@@ -359,17 +361,27 @@ article, aside, details, figcaption, figure, footer, header, nav, section, summa
 	overflow:hidden;
 }
 /* inner page */
-body.page-template-default, body.page-template-default #container, body.page-template-default #wrapper, body.page-template-default .w2{
+body.page-template-default,
+body.page-template-default #container,
+body.page-template-default #wrapper,
+body.page-template-default .w2,
+body.page-template-page-newsletter-php,
+body.page-template-page-newsletter-php #container,
+body.page-template-page-newsletter-php #wrapper,
+body.page-template-page-newsletter-php .w2{
 	background:none;
 }
-body.page-template-default #header{
+body.page-template-default #header,
+body.page-template-page-newsletter-php #header{
 	height:177px;
 }
-body.page-template-default #main{
+body.page-template-default #main,
+body.page-template-page-newsletter-php #main{
 	padding:0;
 	margin:0 0 52px; /*	background: url('images/bg-footer.gif') repeat-y 100% 0;*/
 }
-body.page-template-default .main-holder{/*	background: url('images/bg-main-holder.gif') repeat-x;*/
+body.page-template-default .main-holder,
+body.page-template-page-newsletter-php .main-holder{
 	width:100%;
 }
 body.category, body.category #container, body.category #wrapper, body.category .w2{
@@ -478,6 +490,7 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	color:#7b7b7b;
 	overflow:hidden;
 	width:100%;
+	height: 0;
 }
 #content span.comments{
 	line-height:16px;
@@ -1375,7 +1388,8 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 .top-post a:hover{
 	text-decoration:none;
 }
-.link-more, .btn-red{
+.link-more,
+.btn-red{
 	color:#fff !important;
 	background:#ff3366;
 	padding:0 11px;
@@ -1477,6 +1491,7 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 .socials li{
 	float:left;
 	margin:0 0 0 17px;
+	max-height: 64px;
 }
 .socials li{
 	text-align:center;
@@ -1563,6 +1578,9 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 }
 #main .hentry.featured-post .content h2.long{
 	font-size:56px;
+}
+#main .hentry.featured-post .content h2.long2{
+	font-size:30px;
 }
 .hentry.featured-post .content h2 a{
 	color:#000 !important;
@@ -1785,6 +1803,55 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	font:40px/48px 'helvetica_neueregular', Helvetica, Times, serif;
 	margin:0 0 40px;
 }
+.headings-holder > h1{
+	font:70px/83px 'helvetica_neueregular',Helvetica,Times,serif;
+}
+.main-newsletter{
+	font:16px/22px Arial,Helvetica,sans-serif;
+	background: url(images/logo-im-s.png) no-repeat 100% 0;
+}
+.main-newsletter .main-holder{
+	background: url(images/logo_2.png) no-repeat 810px 45px;
+} 
+
+#main.main-newsletter h2{
+	font:30px/40px 'helvetica_neueregular',Helvetica,Times,serif;
+	margin: 0 0 10px;
+}
+.mymail-form{
+	font:16px/22px Arial,Helvetica,sans-serif;
+}
+.mymail-form label{
+	display: block;
+	line-height: 22px !important;
+}
+.mymail-form input[type="text"],
+.mymail-form input[type="email"]{
+	background:#fff;
+	display: block;
+	border:1px solid #000;
+	margin:0 0 15px;
+	padding:4px 5px;
+	font:16px Arial,Helvetica,sans-serif;
+}
+.mymail-form .submit-button{
+	color:#fff;
+	background:#ff3366;
+	border: none;
+	padding:0 11px;
+	margin: 0;
+	display:inline-block;
+	font-size:14px;
+	line-height:28px;
+	font-weight:bold;
+	text-transform:uppercase;
+	cursor: pointer;
+}
+.main-newsletter #content{
+	width: 680px;
+}
+
+
 .cf:after,
 .top-section:after,
 .blog-bar:after,
@@ -1792,7 +1859,8 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 .posts-holder .hentry:after,
 .socials:after,
 #header:after,
-#header .header-holder:after{
+#header .header-holder:after,
+.main-holder:after{
 	content:'';
 	display:table;
 	clear:both;
