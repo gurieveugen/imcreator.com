@@ -17,6 +17,20 @@ jQuery(document).ready(function($){
 		jQuery('html, body').animate({"scrollTop": height }, 'slow'); 
 		e.preventDefault();
 	});
+
+	 $(".various").fancybox({
+			maxWidth	: 600,
+			maxHeight	: 400
+		});
+	
+	if(defaults.signup_show) $('#modal-signup-show').fancybox({
+		maxWidth: 600,
+		maxHeight: 400,
+		autoSize	: false,
+		closeClick	: false,
+		fitToView	: false,
+	}).trigger('click');
+
 })
 
 function add_height() {

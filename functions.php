@@ -7,6 +7,9 @@ error_reporting(0);
 
 include('theme-admin.php');
 include('inc/nav.php');
+include('includes/Visitors.php');
+
+
 
 global $matrix_cat_str;
 $matrix_cat_str = $TO->get_option('check-cat');
@@ -19,10 +22,36 @@ add_image_size( 'blog-thumb', 280);
 
 define('TDU', get_bloginfo('template_url'));
 
+
 function scripts_method() {
+	// =========================================================
+	// ADD SCRIPTS
+	// =========================================================
 	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', TDU .'/js/jquery-1.9.1.min.js');    
+	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');    
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script('main', TDU.'/js/main.js', array('jquery'));
+	wp_enqueue_script('mousewheel', TDU.'/fancybox/lib/jquery.mousewheel-3.0.6.pack.js', array('jquery'));
+	wp_enqueue_script('fancybox', TDU.'/fancybox/source/jquery.fancybox.js', array('jquery'));
+	wp_enqueue_script('fancybox-buttons', TDU.'/fancybox/source/helpers/jquery.fancybox-buttons.js', array('jquery'));
+	wp_enqueue_script('fancybox-media', TDU.'/fancybox/source/helpers/jquery.fancybox-media.js', array('jquery'));
+	wp_enqueue_script('fancybox-thumbs', TDU.'/fancybox/source/helpers/jquery.fancybox-thumbs.js', array('jquery'));
+	// =========================================================
+	// ADD STYLES
+	// =========================================================
+	wp_enqueue_style('fancybox', TDU.'/fancybox/source/jquery.fancybox.css');
+	wp_enqueue_style('fancybox-buttons', TDU.'/fancybox/source/helpers/jquery.fancybox-buttons.css');
+	wp_enqueue_style('fancybox-thumbs', TDU.'/fancybox/source/helpers/jquery.fancybox-thumbs.css');
+
+	// =========================================================
+	// Localize script
+	// =========================================================
+	$visitor   = new Visitors(Visitors::getIP());	
+	$defaults  = array(
+		'signup_show' => !$visitor->isRegisterdIP()
+	);
+	wp_localize_script('main', 'defaults', $defaults);
+	$visitor->registerIP();
 }
 add_action('wp_enqueue_scripts', 'scripts_method');
 

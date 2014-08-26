@@ -53,6 +53,19 @@ $title_container = 'h2';
 
 	echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
 	?>
+	<!-- <div class="" style="width: 100%;">
+		<div style="width: 300px; height: 250px; display: block; float: left;">
+			<?php 	
+			//echo do_shortcode('[newsletter_signup_form id=0]'); 
+			//echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
+			?>	
+		</div>
+		<div style="">
+			<img src="http://placehold.it/600x250" alt="">
+		</div>	
+	</div> -->
+	
+	
     <?php // comments_template( '', true ); ?>	
 	<h3 class="more-title">MORE</h3>
 	<div class="posts-holder">

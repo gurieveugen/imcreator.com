@@ -54,8 +54,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
         <!--[if lt IE 9]>
 			<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/html5.js"></script>
 		<![endif]-->
-		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.sticky.js"></script>		
-		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js"></script>		
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.sticky.js"></script>					
 		
 		<?php if ( (is_single() && in_category( explode(',', $matrix_cat_str) ) ) || is_category(explode(',', $matrix_cat_str)) || is_tag() ) : ?>
 
