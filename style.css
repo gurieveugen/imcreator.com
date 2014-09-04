@@ -1963,3 +1963,7 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	display:table;
 	clear:both;
 }
+
+.promo .mymail-form .mymail-lists-wrapper{
+	display: none;
+}
