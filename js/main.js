@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
 		});
 	
 	if(defaults.signup_show) $('#modal-signup-show').fancybox({
-		maxWidth: 600,
+		maxWidth: 450,
 		maxHeight: 400,
 		autoSize	: false,
 		closeClick	: false,

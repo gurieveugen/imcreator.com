@@ -10,7 +10,6 @@ include('inc/nav.php');
 include('includes/Visitors.php');
 
 
-
 global $matrix_cat_str;
 $matrix_cat_str = $TO->get_option('check-cat');
 
@@ -475,6 +474,7 @@ function my_smart_search( $search, &$wp_query ) {
     return $search;
 }
 add_image_size( 'post_thumb', 550, 466, false ); 
+add_image_size('category_thumb', 600, 250, false); 
 add_filter( 'posts_search', 'my_smart_search', 500, 2 );
 
 add_filter('wp_head', 'javascript_page');
@@ -632,3 +632,5 @@ function removeEmptyElements($arr)
 	return null;
 	
 }
+
+

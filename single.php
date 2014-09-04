@@ -4,8 +4,10 @@
  * @package WordPress
  * @subpackage HivistaSoft_Theme
  */
+include('includes/EmailFormBox.php');
 get_header();
 $title_container = 'h2';
+
 ?>
 <div id="main">	
 <?php if ( have_posts() ) : the_post(); ?>	
@@ -51,18 +53,33 @@ $title_container = 'h2';
 	</article>
 	<?php 
 
-	echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
+	//echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
 	?>
-	<div class="" style="width: 100%;">
-		<div style="width: 300px; height: 250px; display: block; float: left;">
-			<?php 	
-			echo do_shortcode('[newsletter_signup_form id=1]'); 
-			//echo $GLOBALS['post_type_promo']->getPromoBlock(null, 3, ' promotions-single'); 
-			?>	
+	<div class="promotions-section promotions-s-form">
+		<div class="holder">
+			<div class="promo promo-wide">
+				<?php 
+				$email_form_box = new EmailFormBox(get_the_ID());
+				?>
+				<img src="<?php echo $email_form_box->getImageURL(); ?>" alt="">
+			</div>
+			<div class="promo promo-form">
+				<h4>Signup for the newsletter</h4>
+				<?php echo do_shortcode('[newsletter_signup_form id=1]'); ?>	
+			</div>
 		</div>
-		<div style="">
-			<img src="http://placehold.it/600x250" alt="">
-		</div>	
+	</div>
+	<div class="comments-section">
+		<a href="#" class="btn-see-comments">See / Add Comments</a>
+		<?php comments_template( '', true ); ?>
+		<script>
+		jQuery(function(){
+			jQuery('.btn-see-comments').click(function(){
+				jQuery('#comments').toggle();
+				return false;
+			});
+		});
+		</script>
 	</div>
 	
 	

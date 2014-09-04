@@ -1626,7 +1626,7 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 }
 .promotions-section.promotions-single{
 	border-bottom:none;
-	padding-bottom:85px;
+	padding-bottom:30px;
 	margin-bottom:0;
 }
 .promotions-section h3{
@@ -1639,6 +1639,9 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	float:left;
 	width:300px;
 	margin:0 0 0 20px;
+}
+.promotions-section .promo.promo-wide{
+	width: 600px;
 }
 .promotions-section .promo:first-child{
 	margin-left:0;
@@ -1849,6 +1852,101 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 }
 .main-newsletter #content{
 	width: 680px;
+}
+#modal-signup .mymail-form{
+	margin: 0;
+}
+#modal-signup h2{
+	font: 26px/29px 'helvetica_neueregular',Helvetica,sans-serif;
+	margin: 10px 0 15px;
+	color: #000;
+}
+#modal-signup .mymail-list{
+	padding-left: 0;
+}
+.promotions-section.promotions-s-form{
+	padding: 30px 0;
+	margin-bottom: 0;
+	border-bottom: none;
+}
+.promotions-section .promo-form{
+	padding: 5px 0 0 20px;
+}
+.promotions-section .mymail-form{
+	margin: 0;
+}
+.promotions-section .promo-form h4{
+	margin: 0 0 15px;
+	font-size: 20px;
+	line-height: 24px;
+}
+.promotions-section .mymail-list{
+	padding-left: 0;
+}
+.promotions-section .mymail-form .form-submit{
+	text-align: center;
+}
+.promotions-section .mymail-form .submit-button{
+	background: #009bff;
+	height: 46px;
+	padding: 0 10px;
+	font-size: 20px;
+	text-transform: none;
+}
+.promotions-section .mymail-form input[type="text"],
+.promotions-section .mymail-form input[type="email"]{
+	padding: 6px 5px;
+}
+.promotions-section .mymail-form label{
+	margin: 0 0 5px;
+}
+.btn-see-comments{
+	display: inline-block;
+	background: #000;
+	color: #fff;
+	padding: 0 20px;
+	font-size: 20px;
+	line-height: 35px;
+}
+.btn-see-comments:hover{
+	background: #7cccff;
+	color: #747474;
+	text-decoration: none;
+}
+.comments-section{
+	border-top: 1px solid #999;
+	padding: 10px 0;
+}
+.comment-form label{
+	display: block;
+	margin: 0 0 2px;
+}
+.comment-form input[type="text"],
+.comment-form input[type="email"]{
+	background:#fff;
+	border:1px solid #000;
+	margin:0;
+	padding: 6px 5px;
+	width:300px;
+}
+.comment-form textarea{
+	border:1px solid #000;
+	margin:0;
+	padding: 6px 5px;
+	width: 500px;
+}
+.comment-form input[type="submit"]{
+	color: #fff;
+	background: #009bff;
+	border: none;
+	padding: 10px 11px;
+	margin: 0;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#comments{
+	display: none;
 }
 
 
