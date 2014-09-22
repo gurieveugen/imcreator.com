@@ -3,12 +3,13 @@
  * @package WordPress
  * @subpackage HivistaSoft_Theme
  */
-error_reporting(0);
+error_reporting(E_ALL);
 
 include('theme-admin.php');
 include('inc/nav.php');
-include('includes/Visitors.php');
-
+require_once 'includes/Visitors.php';
+require_once 'includes/ImageField.php';
+require_once 'includes/meta_box_post_options.php';
 
 global $matrix_cat_str;
 $matrix_cat_str = $TO->get_option('check-cat');
@@ -45,10 +46,10 @@ function scripts_method() {
 	// =========================================================
 	// Localize script
 	// =========================================================
-	$visitor   = new Visitors(Visitors::getIP());	
-	$defaults  = array(
-		'signup_show' => !$visitor->isRegisterdIP()
-	);
+	$visitor     = new Visitors(Visitors::getIP());	
+	$singup_show = (!is_user_logged_in()) ? !$visitor->isRegisterdIP() : false;
+	$defaults    = array('signup_show' => $singup_show);
+
 	wp_localize_script('main', 'defaults', $defaults);
 	$visitor->registerIP();
 }

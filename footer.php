@@ -818,7 +818,7 @@ var gaAdsBlocked=true;
 
 <a href="#modal-signup" id="modal-signup-show" class="various" style="display: none;">open dialog</a>
 <div id="modal-signup" style="display:none;">
-    <?php echo do_shortcode('[newsletter_signup]<h2>Signup for the newsletter</h2>[newsletter_signup_form][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]'); ?>
+    <?php echo do_shortcode('[newsletter_signup]<h2>Sign up for the newsletter</h2>[newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]'); ?>
 </div>
 
 </body>

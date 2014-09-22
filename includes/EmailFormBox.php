@@ -21,28 +21,45 @@ class EmailFormBox{
 
 	public function getImageURL()
 	{
-		$image = $this->getImageFromCategory();
+		$image = $this->getFromPost();
 		if($image !== false) return $image;
 
-		$image = $this->getImageFromPromo();
+		$image = $this->getFromCategory();
+		if($image !== false) return $image;
+
+		$image = $this->getFromPromo();
 		if($image !== false) return $image;
 
 		return 'http://placehold.it/600x250/0A6ABF/F2E744';
-	}                         
+	}     
+
+	/**
+	 * Get image from post
+	 * @return --- if succes return image src | false if not
+	 */
+	public function getFromPost()
+	{
+		$image_src = (string) get_post_meta($this->post_id, 'po_image_src', true);	
+		$image_url = (string) get_post_meta($this->post_id, 'po_image_url', true);
+
+		if(!empty($image_src)) return array($this->getImageThumb($image_src), $image_url);
+		return false;
+	}     
 
 	/**
 	 * Get image from category field
 	 * @return mixed --- if success return image url | false if not
 	 */
-	public function getImageFromCategory()
+	public function getFromCategory()
 	{
 		$terms = wp_get_post_terms($this->post_id, array('category'));
 		if(is_array($terms))
 		{
 			foreach ($terms as &$term) 
 			{
-				$image = get_option(sprintf('IM_category_custom_%s', $term->term_id));				
-				if($image !== false AND isset($image[0][2])) return $this->getImageThumb($image[0][2]);
+				$image = (string) get_option(sprintf('tax_%s_uploaded_image', $term->term_id));				
+				$url   = (string) get_option(sprintf('tax_%s_image_url', $term->term_id));
+				if($image !== false) return array($this->getImageThumb($image), $url);
 			}
 		}
 		return false;
@@ -52,7 +69,7 @@ class EmailFormBox{
 	 * Get imaage from promo post
 	 * @return mixed --- if success return image url | false if not
 	 */
-	public function getImageFromPromo()
+	public function getFromPromo()
 	{		
 		$promos = get_posts(
 			array(
@@ -65,7 +82,7 @@ class EmailFormBox{
 			foreach ($promos as $promo) 
 			{
 				$url = wp_get_attachment_image_src(get_post_thumbnail_id($promo->ID), 'category_thumb');
-				if($url !== false) return $url[0];
+				if($url !== false) return array($this->getImageThumb($url[0]), '#');
 			}
 		}
 		return false;

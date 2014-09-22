@@ -31,7 +31,7 @@ class Visitors{
 	 * @return boolean --- true if success | false if no
 	 */
 	public function isRegisterdIP()
-	{
+	{	
 		$IPs = (array) $this->getIPs();
 		return in_array($this->IP, $IPs);
 	}

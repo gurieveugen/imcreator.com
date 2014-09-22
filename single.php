@@ -60,8 +60,9 @@ $title_container = 'h2';
 			<div class="promo promo-wide">
 				<?php 
 				$email_form_box = new EmailFormBox(get_the_ID());
+				$image          = $email_form_box->getImageURL();
 				?>
-				<img src="<?php echo $email_form_box->getImageURL(); ?>" alt="">
+				<a href="<?php echo $image[1]; ?>"><img src="<?php echo $image[0]; ?>" alt=""></a>
 			</div>
 			<div class="promo promo-form">
 				<h4>Signup for the newsletter</h4>
@@ -83,8 +84,8 @@ $title_container = 'h2';
 	</div>
 	
 	
-    <?php // comments_template( '', true ); ?>	
-	<h3 class="more-title">MORE</h3>
+    <?php // comments_template( '', true ); ?>
+	<h3 class="more-title">MORE POSTS</h3>	
 	<div class="posts-holder">
 		<?php 		
 		if($categories)

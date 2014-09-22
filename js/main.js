@@ -23,13 +23,21 @@ jQuery(document).ready(function($){
 			maxHeight	: 400
 		});
 	
-	if(defaults.signup_show) $('#modal-signup-show').fancybox({
-		maxWidth: 450,
-		maxHeight: 400,
-		autoSize	: false,
-		closeClick	: false,
-		fitToView	: false,
-	}).trigger('click');
+	if(defaults.signup_show) 
+	{
+		jQuery('#modal-signup-show').fancybox({
+			maxWidth: 450,
+			maxHeight: 300,
+			autoSize	: false,
+			closeClick	: false,
+			fitToView	: false,
+		}).trigger('click');
+		setTimeout(function(){
+			jQuery.fancybox.close();
+		}, 20000);
+		
+	}
+	
 
 })
 
@@ -39,4 +47,6 @@ function add_height() {
 		jQuery(this).find('a').height(imgHeight);
 	});
 }
+
+
 
