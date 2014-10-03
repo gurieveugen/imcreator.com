@@ -24,9 +24,18 @@ class ImageField{
 		add_action('edited_'.$this->name, array(&$this, 'save'));
 		add_action('created_'.$this->name, array(&$this, 'save'));
 		add_filter('deleted_term_taxonomy', array(&$this, 'delete'));
+		add_action( 'admin_enqueue_scripts', array(&$this, 'my_enqueue_media') );
 		wp_enqueue_style('font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-		wp_enqueue_media();    	
-	}	   
+			
+	}	 
+
+	public function my_enqueue_media() 
+	{
+		if(function_exists('wp_enqueue_media')) {
+            wp_enqueue_media();
+        }   
+	}	
+  
 
 	public function adminStyles()
 	{

@@ -57,6 +57,7 @@ if($i == 1)
 					 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
 				<?php
 				$cont = short_content(get_the_content(), 250);
+				$cont = get_the_excerpt();
 				?>
 				<p><?php echo $cont; ?></p>
 				<a href="<?php echo get_permalink(); ?>" class="link-more">more</a>

@@ -15,7 +15,7 @@ class PostOptions{
 		add_action('add_meta_boxes', array($this, 'metaBoxPostOptions'));
 		add_action('save_post', array($this, 'savePostOptions'), 0);
 		add_action('admin_enqueue_scripts', array(&$this, 'adminStyles'));	
-		wp_enqueue_media();
+		//wp_enqueue_media();
 	}
 
 	public function adminStyles()
