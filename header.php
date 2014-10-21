@@ -10,6 +10,48 @@ Global $TO, $matrix_cat_str;
 
 	<head>
 <script defer src='http://www.antenna.is/static/engage.js'></script>
+<!-- One Analytics: 
+ReTargetting via Google Analytics is enabled by running dc.js instead of ga.js
+However, dc.js is an AdWords code that is disabled by AdBlockers
+The solution: if an AdBlocker is on, run the original ga.js instead of dc.js (so that GA data is always collected).
+The method: By default, gaAdsBlocked=true (i.e. assuming AdBlock is on), so ga.js will run.
+The file ./advertising.com changes gaAdsBlocked to false, but this file will only run if AdBlock is off.
+  -- One Analytics-->
+
+<script>
+var gaAdsBlocked=true;
+</script>
+
+<script type="text/javascript" src="http://imcreator.com/wp-content/uploads/2013/01/advertising.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-21520422-1']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_addIgnoredRef', 'imcreator.com']);
+  _gaq.push(['_addIgnoredRef', 'i-m.co']);  
+  _gaq.push(['_addIgnoredRef', 'im-creator.appspot.com']);
+  _gaq.push(['_setDomainName', '.imcreator.com']);
+  _gaq.push(['_trackPageview']);
+
+ 
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+	if (gaAdsBlocked==true)
+		{
+	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ 	   }
+    else
+       	   {
+		   ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        }
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 
 <!-- t2gRy23uV8B7YymvYBetl0kVBDU -->
 
@@ -20,22 +62,6 @@ Global $TO, $matrix_cat_str;
    // Allows for multiple-domain tracking
    _udn = ".imcreator.com";
    </script>
-
-
-<!-- Google Analytics Content Experiment code -->
-<script>function utmx_section(){}function utmx(){}(function(){var
-k='42537450-2',d=document,l=d.location,c=d.cookie;
-if(l.search.indexOf('utm_expid='+k)>0)return;
-function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-</script><script>utmx('url','A/B');</script>
-<!-- End of Google Analytics Content Experiment code -->
 
 
 		<?php endif; ?>
@@ -131,6 +157,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 		<?php endif; ?>
 	</head>
 	<body <? body_class(); ?>>
+	<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
 
 		<!-- wrapper -->
 		<div id="wrapper">
