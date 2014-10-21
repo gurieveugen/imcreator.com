@@ -37,7 +37,12 @@ jQuery(document).ready(function($){
 		}, 20000);
 		
 	}
-	
+	// ==============================================================
+	// Newsletter submit click
+	// ==============================================================
+	jQuery('.mymail-wrapper .submit-button').click(function(){
+		_gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Signup new user']);
+	});
 
 })
 

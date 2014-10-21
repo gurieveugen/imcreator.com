@@ -531,38 +531,41 @@ function javascript_page()
 	?>
 	<script type="text/javascript">
 	    $(document).ready(function() {
-		var page_number = 3;		
-	    
-	    $(window).bind('scroll', function(e) 
-	    {
-	        if($(window).scrollTop() + $(window).height() > $(document).height() - 2000 && !window.busy) 
-	        {	        	
-	            window.busy = true;	            
+			var page_number = 3;		
+		    if( $('.posts-holder').length)
+		    {
+    		    $(window).bind('scroll', function(e) 
+    		    {
+    		        if($(window).scrollTop() + $(window).height() > $(document).height() - 2000 && !window.busy) 
+    		        {	        	
+    		            window.busy = true;	            
 
-	            jQuery.ajax(
-	            {
-	                type: "POST",
-	                dataType: 'JSON',
-	                url: "<?php bloginfo('siteurl') ?>/wp-admin/admin-ajax.php?action=get_more_posts",
-	                data: {
-	                	pagenumber: page_number,
-	                	cat: '<?php echo $wp_query->query_vars['category_name']; ?>'
-	                },                                     
-	                success: function(response)
-	                {
-	                	if(response.html != "")
-	                	{
-                			window.busy        = false;
-                			page_number += 1;
-                		    jQuery('.posts-holder').html(jQuery('.posts-holder').html() + response.html);
-                		    getCounts('.' + response.loop);            		    
-	                	}
-	                }
-	            });
-	        }
-	    });
+    		            jQuery.ajax(
+    		            {
+    		                type: "POST",
+    		                dataType: 'JSON',
+    		                url: "<?php bloginfo('siteurl') ?>/wp-admin/admin-ajax.php?action=get_more_posts",
+    		                data: {
+    		                	pagenumber: page_number,
+    		                	cat: '<?php echo $wp_query->query_vars['category_name']; ?>'
+    		                },                                     
+    		                success: function(response)
+    		                {
+    		                	if(response.html != "")
+    		                	{
+    	                			window.busy        = false;
+    	                			page_number += 1;
+    	                		    jQuery('.posts-holder').html(jQuery('.posts-holder').html() + response.html);
+    	                		    getCounts('.' + response.loop);            		    
+    		                	}
+    		                }
+    		            });
+    		        }
+    		    });
+		    }
+		    
 	    
-	});
+		});
 	</script>
 <?php
 }
