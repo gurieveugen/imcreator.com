@@ -40,11 +40,18 @@ jQuery(document).ready(function($){
 	// ==============================================================
 	// Newsletter submit click
 	// ==============================================================
-	jQuery('.mymail-wrapper .submit-button').click(function(){
+	jQuery('.mymail-form').submit(function(){
 		_gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Signup new user']);
 	});
-
 })
+
+/**
+ * Promo click
+ */
+function addTrackEvent()
+{
+	_gaq.push(['_trackEvent', 'blog', 'promo-click', 'IM FREE']);
+}
 
 function add_height() {
 	jQuery( ".images-box .box" ).each(function() {

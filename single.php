@@ -62,7 +62,7 @@ $title_container = 'h2';
 				$email_form_box = new EmailFormBox(get_the_ID());
 				$image          = $email_form_box->getImageURL();
 				?>
-				<a href="<?php echo $image[1]; ?>"><img src="<?php echo $image[0]; ?>" alt=""></a>
+				<a href="<?php echo $image[1]; ?>" onclick="addTrackEvent()"><img src="<?php echo $image[0]; ?>" alt=""></a>
 			</div>
 			<div class="promo promo-form">
 				<h4>Signup for the newsletter</h4>
