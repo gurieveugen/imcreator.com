@@ -26,15 +26,15 @@ jQuery(document).ready(function($){
 	if(!defaults.signup_show) 
 	{
 		jQuery('#modal-signup-show').fancybox({
-			maxWidth: 450,
+			maxWidth: 600,
 			maxHeight: 300,
 			autoSize	: false,
 			closeClick	: false,
 			fitToView	: false,
 		}).trigger('click');
-		setTimeout(function(){
-			jQuery.fancybox.close();
-		}, 20000);
+		// setTimeout(function(){
+		// 	jQuery.fancybox.close();
+		// }, 20000);
 		
 	}
 	// ==============================================================
