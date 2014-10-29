@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 			maxHeight	: 400
 		});
 	
-	if(defaults.signup_show) 
+	if(!defaults.signup_show) 
 	{
 		jQuery('#modal-signup-show').fancybox({
 			maxWidth: 450,
