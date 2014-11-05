@@ -777,7 +777,8 @@ text-decoration: none;
 
 <a href="#modal-signup" id="modal-signup-show" class="various" style="display: none;">open dialog</a>
 <div id="modal-signup" style="display:none;">
-    <?php echo do_shortcode('[newsletter_signup]<h2>Sign up for the newsletter</h2>[newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]'); ?>
+    <?php //echo do_shortcode( '[newsletter_signup] <h2>Signup for the newsletter</h2> [newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]' ); ?>
+    <?php echo do_shortcode('[newsletter_signup]<h2>Join 100\'s of designers & business owners</h2><p>Get design resources, business growth tips, and more, right to your inbox. We send our newsletter only twice per month and we promise not to bug you</p>[newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]'); ?>
 </div>
 
 </body>

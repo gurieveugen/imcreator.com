@@ -42,7 +42,10 @@ $title_container = 'h2';
 			</div>
 		</div>
 		<h1><?php the_title(); ?></h1>
-		<span class="meta"><?php the_time('j.m.y'); ?> By <a href="<?php the_author_url(); ?>" target="_blank" ><?php the_author(); ?></a> <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>		
+		<?php 
+		global $authordata;
+		?>
+		<span class="meta"><?php the_time('j.m.y'); ?> By <a href="<?php echo esc_url( get_author_posts_url( $authordata->ID, $authordata->user_nicename ) ); ?>" target="_blank" ><?php the_author(); ?></a> <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>		
 		<div class="content">
 			<?php the_content(); ?>
             <?php /* ?>

@@ -42,6 +42,9 @@ class EmailFormBox{
 		$image_src = (string) get_post_meta($this->post_id, 'po_image_src', true);	
 		$image_url = (string) get_post_meta($this->post_id, 'po_image_url', true);
 
+		$image_src = trim($image_src);
+		$image_url = trim($image_url);
+
 		if(!empty($image_src)) return array($this->getImageThumb($image_src), $image_url);
 		return false;
 	}     
@@ -59,7 +62,11 @@ class EmailFormBox{
 			{
 				$image = (string) get_option(sprintf('tax_%s_uploaded_image', $term->term_id));				
 				$url   = (string) get_option(sprintf('tax_%s_image_url', $term->term_id));
-				if($image !== false) return array($this->getImageThumb($image), $url);
+
+				$image = trim($image);
+				$url   = trim($url);
+
+				if(strlen($image)) return array($this->getImageThumb($image), $url);
 			}
 		}
 		return false;

@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 			maxHeight	: 400
 		});
 	
-	if(!defaults.signup_show) 
+	if(defaults.signup_show) 
 	{
 		jQuery('#modal-signup-show').fancybox({
 			maxWidth: 600,
@@ -32,9 +32,9 @@ jQuery(document).ready(function($){
 			closeClick	: false,
 			fitToView	: false,
 		}).trigger('click');
-		// setTimeout(function(){
-		// 	jQuery.fancybox.close();
-		// }, 20000);
+		setTimeout(function(){
+			jQuery.fancybox.close();
+		}, 20000);
 		
 	}
 	// ==============================================================
@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
  */
 function addTrackEvent()
 {
-	_gaq.push(['_trackEvent', 'blog', 'promo-click', 'IM FREE']);
+	_gaq.push(['_trackEvent', 'blog', 'promo-click', 'design resources']);
 }
 
 function add_height() {

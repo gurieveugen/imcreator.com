@@ -10,6 +10,14 @@ if($title_container == "")
 {
 	$title_container = "h2";
 }
+if(is_author())
+{
+	?>
+	<div class="biographical-info">
+		 <?php the_author_description(); ?> 
+	</div>
+	<?php
+}
 ?>
 <!-- 404 post -->
 <? if ( ! have_posts() ) : ?>
