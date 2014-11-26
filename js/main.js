@@ -23,8 +23,9 @@ jQuery(document).ready(function($){
 			maxHeight	: 400
 		});
 	
-	if(defaults.signup_show) 
+	if(typeof($.cookie('modal-signup-show')) == 'undefined')
 	{
+		$.cookie('modal-signup-show', true, { expires: 1 });
 		jQuery('#modal-signup-show').fancybox({
 			maxWidth: 600,
 			maxHeight: 300,
@@ -37,20 +38,21 @@ jQuery(document).ready(function($){
 		}, 20000);
 		
 	}
+	console.log();
 	// ==============================================================
 	// Newsletter submit click
 	// ==============================================================
 	jQuery('.mymail-form').submit(function(){
-		_gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Signup new user']);
+		var title = jQuery('.single-content .promotions-section .promo-form').attr('rel');
+		_gaq.push(['_trackEvent', 'blog', 'newsletter-signup', title]);
 	});
 })
 
 /**
  * Promo click
  */
-function addTrackEvent()
-{
-	_gaq.push(['_trackEvent', 'blog', 'promo-click', 'design resources']);
+function addTrackEvent(title) {
+	_gaq.push(['_trackEvent', 'blog', 'promo-click', title]);
 }
 
 function add_height() {

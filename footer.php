@@ -336,7 +336,7 @@ checkCookie()
         
         
         
-        <div style = "left: 0px"><img style = "margin-top: 50px; margin-left: -400px; z-index: 499;" src="http://im_static.s3.amazonaws.com/collection_header.png" /></div>
+        <div style = "left: 0px"><img style = "margin-top: 50px; margin-left: -400px; z-index: 499;" src="http://www.imcreator.com/wp-content/uploads/2014/11/winter-2015.gif" /></div>
         <div class="sliderGallery" style = "margin-top: -30px;">
               <div class="wrapper"></div><div class="slider ui-slider">
                 <div class="ui-slider-handle"></div> 
@@ -350,7 +350,7 @@ checkCookie()
             </div>
 			  <ul>
       
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=C1ADE52BC25C4CD2B071C0BC9D79E0DE"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=C1ADE52BC25C4CD2B071C0BC9D79E0DE"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://imthumbs.s3.amazonaws.com/vbid_C1ADE52BC25C4CD2B071C0BC9D79E0DE.jpg" /></span>
                  <span class="desc">
@@ -363,7 +363,7 @@ checkCookie()
                 </li>          
 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=C454AACAF6A1472C98AF82C600B69DA4"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=C454AACAF6A1472C98AF82C600B69DA4"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://im_static.s3.amazonaws.com/yoshi_sushi.jpg" /></span>
                  <span class="desc">
@@ -375,7 +375,7 @@ checkCookie()
 			  	 </a>
                 </li>  
 
- <li class="file"> <a href="http://app.imcreator.com/preview?vbid=855914835E6C484F820DD5D5338D40E0"  target="_blank">
+ <li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=855914835E6C484F820DD5D5338D40E0"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://imthumbs.s3.amazonaws.com/vbid_855914835E6C484F820DD5D5338D40E0.jpg" /></span>
                  <span class="desc">
@@ -389,7 +389,7 @@ checkCookie()
 
 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=5C5B0A50F1244DC38AEF9B8AD6EBAC77"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=5C5B0A50F1244DC38AEF9B8AD6EBAC77"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://imthumbs.s3.amazonaws.com/vbid_5C5B0A50F1244DC38AEF9B8AD6EBAC77.jpg" /></span>
                  <span class="desc">
@@ -401,7 +401,7 @@ checkCookie()
 			  	 </a>
                 </li> 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=C63EB35569D2475589EA175C533FE4E5"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=C63EB35569D2475589EA175C533FE4E5"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://imthumbs.s3.amazonaws.com/vbid_C63EB35569D2475589EA175C533FE4E5.jpg" /></span>
                  <span class="desc">
@@ -417,7 +417,7 @@ checkCookie()
 
 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=FD5ACF4ABDD74286BB42B554423AF0D9"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=FD5ACF4ABDD74286BB42B554423AF0D9"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://im_static.s3.amazonaws.com/lakes_in.jpg" /></span>
                  <span class="desc">
@@ -430,7 +430,7 @@ checkCookie()
                 </li>   
 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=5DCEC7F9A03344B3AA296A954F4DF44D"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=5DCEC7F9A03344B3AA296A954F4DF44D"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://im_static.s3.amazonaws.com/interia_black.jpg" /></span>
                  <span class="desc">
@@ -445,7 +445,7 @@ checkCookie()
 
  
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=C04E39E3AF57448E84D8D1FF36E6D5CC"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=C04E39E3AF57448E84D8D1FF36E6D5CC"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://im_static.s3.amazonaws.com/interia_white.jpg" /></span>
                  <span class="desc">
@@ -462,7 +462,7 @@ checkCookie()
 
 
 
-<li class="file"> <a href="http://app.imcreator.com/preview?vbid=12EED6F222364D3C8333B1A17B10AF03"  target="_blank">
+<li class="file"> <a rel="nofollow" href="http://app.imcreator.com/preview?vbid=12EED6F222364D3C8333B1A17B10AF03"  target="_blank">
                  <span class="preview_btn"><img src="http://im_static.s3.amazonaws.com/preview_btn.png" /></span>
                  <span class="preview"><img src="http://im_static.s3.amazonaws.com/antonio_sabatti.jpg" /></span>
                  <span class="desc">
@@ -777,8 +777,7 @@ text-decoration: none;
 
 <a href="#modal-signup" id="modal-signup-show" class="various" style="display: none;">open dialog</a>
 <div id="modal-signup" style="display:none;">
-    <?php //echo do_shortcode( '[newsletter_signup] <h2>Signup for the newsletter</h2> [newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]' ); ?>
-    <?php echo do_shortcode('[newsletter_signup]<h2>Join 100\'s of designers & business owners</h2><p>Get design resources, business growth tips, and more, right to your inbox. We send our newsletter only twice per month and we promise not to bug you</p>[newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm] [newsletter_unsubscribe]Do you really want to unsubscribe?[/newsletter_unsubscribe]'); ?>
+    <?php echo do_shortcode('[newsletter_signup]<h2>Join 1000\'s of designers & business owners</h2><p>Get design resources, business growth tips, and more, right to your inbox. We send our newsletter only twice per month and we promise not to bug you</p>[newsletter_signup_form id=1][/newsletter_signup] [newsletter_confirm]Thanks for your interest![/newsletter_confirm]'); ?>
 </div>
 
 </body>

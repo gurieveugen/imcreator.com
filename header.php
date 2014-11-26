@@ -101,7 +101,7 @@ var gaAdsBlocked=true;
 				if ((jQuery(window).scrollTop() + jQuery(window).height() == jQuery(document).height()) && imgLoading)  {
                     imgLoading = false;
 					++paged;                                       
-                    jQuery('#ajax-loading').show();					
+                    jQuery('#ajax-loading').show();
 					jQuery.ajax({
 						url: js_siteurl,
 						type: "POST",							
@@ -159,6 +159,7 @@ var gaAdsBlocked=true;
 	<body <? body_class(); ?>>
 	<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
 
+
 		<!-- wrapper -->
 		<div id="wrapper">
 			<div class="w1">
@@ -188,3 +189,14 @@ var gaAdsBlocked=true;
 
 							</script>
 						</div>
+<!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->

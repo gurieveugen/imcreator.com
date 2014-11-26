@@ -1,13 +1,6 @@
 <?php
 
 class Visitors{
-	//                          __              __      
-	//   _________  ____  _____/ /_____ _____  / /______
-	//  / ___/ __ \/ __ \/ ___/ __/ __ `/ __ \/ __/ ___/
-	// / /__/ /_/ / / / (__  ) /_/ /_/ / / / / /_(__  ) 
-	// \___/\____/_/ /_/____/\__/\__,_/_/ /_/\__/____/  
-	const FIELD_IPS = 'visitor_ips3';
-
 	//                                       __  _          
 	//     ____  _________  ____  ___  _____/ /_(_)__  _____
 	//    / __ \/ ___/ __ \/ __ \/ _ \/ ___/ __/ / _ \/ ___/
@@ -15,6 +8,7 @@ class Visitors{
 	//  / .___/_/   \____/ .___/\___/_/   \__/_/\___/____/  
 	// /_/              /_/                                 
 	private $IP;
+	private $field;
 
 	//                    __  __              __    
 	//    ____ ___  ___  / /_/ /_  ____  ____/ /____
@@ -24,6 +18,16 @@ class Visitors{
 	public function __construct($IP)
 	{
 		$this->IP = $IP;
+		$this->field = md5('visitors'.date('d').date('m').date('Y'));
+	}
+
+	/**
+	 * Get option field
+	 * @return string --- md5 hash [visitors,d,m,y]
+	 */
+	public function getField()
+	{
+		return $this->field;
 	}
 
 	/**
@@ -45,7 +49,7 @@ class Visitors{
 		{
 			$IPs = (array) $this->getIPs();
 			array_push($IPs, $this->IP);
-			update_option(self::FIELD_IPS, $IPs);
+			update_option($this->getField(), $IPs);
 		}
 	}
 
@@ -55,7 +59,7 @@ class Visitors{
 	 */
 	public function getIPs()
 	{
-		return get_option(self::FIELD_IPS);
+		return get_option($this->getField());
 	}
 
 	/**

@@ -10,6 +10,8 @@
 GLOBAL $TO; 
 error_reporting(E_ALL);
 
+$banner2 = blog_get_banner(2);
+$banner3 = blog_get_banner(3);
 // =========================================================
 // INITIALIZE SOCIAL URLS
 // =========================================================
@@ -25,9 +27,10 @@ $default_socials = array(
 	<div class="top-section">
 		<div class="logo-date">
 			<h1><a href="<?php bloginfo('url'); ?>">im now</a></h1>
-			<p>Real-time resources and inspiration from the imcreator team</p>
+			<p>Real-time resources and inspiration from the IM Creator team.</p>
 			<div class="date"><?php echo date('j.n.Y'); ?></div>
 		</div>
+		<?php if (strlen($banner3)) { ?><div class="header-banner"><?php echo $banner3; ?></div><?php } ?>
 		<div class="top-post">
 			<a href="<?=$TO->get_option('rm_link','hpfeatured');?>"><img src="<?=$TO->get_option('image','hpfeatured');?>" alt=""></a>
 			<div class="holder">
@@ -38,11 +41,12 @@ $default_socials = array(
 		</div>
 	</div>
 	<div class="blog-bar">
-		<?php get_top_menu_child(); ?>		
+		<?php get_top_menu_child(); ?>
 		<?php echo $socialshare->getButtons($default_socials); ?>
+		<?php if (strlen($banner2)) { ?><div class="undercats-home-banner"><?php echo $banner2; ?></div><?php } ?>
 	</div>
 	
-	<div class="posts-holder">		
+	<div class="posts-holder">	
 		<?php get_template_part('loop'); ?>
 	</div>
 	

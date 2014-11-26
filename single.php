@@ -7,13 +7,14 @@
 include('includes/EmailFormBox.php');
 get_header();
 $title_container = 'h2';
-
+$banner2 = blog_get_banner(2);
 ?>
 <div id="main">	
 <?php if ( have_posts() ) : the_post(); ?>	
-<div class="single-bar">
+<div class="single-bar cf">
 	<a href="<?php echo home_url('/'); ?>" class="left"><img src="<?php echo TDU; ?>/images/logo-im-s.png" alt=""></a>
 	<?php get_top_menu_child(); ?>
+	<?php if (strlen($banner2)) { ?><div class="undercats-single-banner"><?php echo $banner2; ?></div><?php } ?>
 </div>
 <script>
 	jQuery(function(){
@@ -65,9 +66,9 @@ $title_container = 'h2';
 				$email_form_box = new EmailFormBox(get_the_ID());
 				$image          = $email_form_box->getImageURL();
 				?>
-				<a href="<?php echo $image[1]; ?>" onclick="addTrackEvent()"><img src="<?php echo $image[0]; ?>" alt=""></a>
+				<a href="<?php echo $image[1]; ?>" onclick="addTrackEvent('<?php echo $post->post_name; ?>')"><img src="<?php echo $image[0]; ?>" alt=""></a>
 			</div>
-			<div class="promo promo-form">
+			<div class="promo promo-form" rel="<?php echo $post->post_name; ?>">
 				<h4>Signup for the newsletter</h4>
 				<?php echo do_shortcode('[newsletter_signup_form id=1]'); ?>	
 			</div>
@@ -110,5 +111,6 @@ $title_container = 'h2';
 </div>
 <? endif; ?>
 </div>
+<script>//jQuery(window).trigger('scroll');</script>
 <a href="#footer-container" class="btn-gotofooter"><img src="<?php echo TDU; ?>/images/btn-footer.png" alt=""></a>
 <? get_footer(); ?>

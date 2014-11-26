@@ -33,7 +33,7 @@ if(is_author())
 <!-- posts -->
 <?php 
 $i = 0;
-
+$banner1 = blog_get_banner(1);
 
 while ( have_posts() ) : the_post(); 
 $i++;
@@ -74,12 +74,46 @@ if($i == 1)
 	</article>
 	<?php
 }
-else if ($i == 5)
+else if ($i == 4)
 {
-	$i = 0;
-	echo $GLOBALS['post_type_promo']->getPromoBlock();
 	?>
+	<article class="hentry <?php echo getLoopRand(); ?>" data-url="<?php echo get_permalink(); ?>" data-last="true">
+		<?php
+		if(has_post_thumbnail())
+		{
+		?>
+			<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail( get_the_ID(), 'post_thumb') ?></a>
+		<?php
+		}
+		?>
+		
+		<div class="holder">			
+			<<?php echo $title_container; ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo $title_container; ?>>
+			<span class="meta"><?php the_time('j.m.y'); ?> By 
+				<?php if (get_the_author_url()) { ?>
+					<a href="<?php the_author_url(); ?>" target="_blank"><?php the_author(); ?></a><?php } else { the_author();
+				} ?>
+				 <a href="<? comments_link(); ?>"><? comments_number('No comments','1 Comment','% Comments'); ?></a></span>
+			<?php echo $GLOBALS['socialshare']->getSocials(get_permalink(), 'mini', get_the_title(get_the_ID())); ?>	
+			<div class="entry-content">
+			<?php			
+			$cont = short_content(get_the_content());
+			echo '<p><a href="'.get_permalink().'" class="content-link">'.$cont.'</a></p>';
+			?>
+			</div>
+			<a href="<?php the_permalink(); ?>" class="link-more">more</a>
+		</div>
+		<? comments_template( '', true ); ?>
+	</article>	
 	<?php
+	$i = 0;
+	//echo $GLOBALS['post_type_promo']->getPromoBlock();
+	if (strlen($banner1)) { ?>
+		<div class="posts-banner">
+			<?php echo $banner1; ?>
+		</div>
+	<?php
+	}
 }
 else
 {

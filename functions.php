@@ -3,7 +3,7 @@
  * @package WordPress
  * @subpackage HivistaSoft_Theme
  */
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 include('theme-admin.php');
 include('inc/nav.php');
@@ -31,6 +31,7 @@ function scripts_method() {
 	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');    
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script('main', TDU.'/js/main.js', array('jquery'));
+	wp_enqueue_script('cookie', TDU.'/js/jquery.cookie.js', array('jquery'));
 	wp_enqueue_script('mousewheel', TDU.'/fancybox/lib/jquery.mousewheel-3.0.6.pack.js', array('jquery'));
 	wp_enqueue_script('fancybox', TDU.'/fancybox/source/jquery.fancybox.js', array('jquery'));
 	wp_enqueue_script('fancybox-buttons', TDU.'/fancybox/source/helpers/jquery.fancybox-buttons.js', array('jquery'));
@@ -48,7 +49,11 @@ function scripts_method() {
 	// =========================================================
 	$visitor     = new Visitors(Visitors::getIP());	
 	$singup_show = (!is_user_logged_in()) ? !$visitor->isRegisterdIP() : false;
-	$defaults    = array('signup_show' => $singup_show);
+	$defaults    = array(
+		'signup_show' => $singup_show,
+		'field'       => $visitor->getField(),
+		'debug'       => $visitor->getIPs()
+	);
 
 	wp_localize_script('main', 'defaults', $defaults);
 	$visitor->registerIP();
@@ -527,11 +532,18 @@ function getFirstCategory($post_id)
  */
 function javascript_page() 
 {
-    global $wp_query;   
-	?>
+    global $wp_query, $post;
+	$cat = $wp_query->query_vars['category_name'];
+	if (is_single()) {
+		$postcats = get_the_category($post->ID);
+		if ($postcats) {
+			$cat = $postcats[0]->name;
+		}
+	}
+	if ($cat) { ?>
 	<script type="text/javascript">
 	    $(document).ready(function() {
-			var page_number = 3;		
+			var page_number = 2;
 		    if( $('.posts-holder').length)
 		    {
     		    $(window).bind('scroll', function(e) 
@@ -547,7 +559,7 @@ function javascript_page()
     		                url: "<?php bloginfo('siteurl') ?>/wp-admin/admin-ajax.php?action=get_more_posts",
     		                data: {
     		                	pagenumber: page_number,
-    		                	cat: '<?php echo $wp_query->query_vars['category_name']; ?>'
+    		                	cat: '<?php echo $cat; ?>'
     		                },                                     
     		                success: function(response)
     		                {
@@ -563,11 +575,10 @@ function javascript_page()
     		        }
     		    });
 		    }
-		    
-	    
 		});
 	</script>
 <?php
+	}
 }
 
 function getMorePostsAJAX()
@@ -576,9 +587,10 @@ function getMorePostsAJAX()
 	$paged = max(1, $_POST['pagenumber']);
 	$cat   = isset($_POST['cat']) ? $_POST['cat'] : '';
 	$args  = array(
-		'posts_per_page' => 5, 
 		'paged'          => $paged,
 		'post_status'    => 'publish',
+		'orderby'        => 'post_date',
+		'order'          => 'DESC',
 		'category_name'  => $cat);
 	
 	srand(make_seed());
@@ -637,4 +649,10 @@ function removeEmptyElements($arr)
 	
 }
 
-
+function blog_get_banner($bn) {
+	$banner = '';
+	if (@$_GET['usr'] != 'clean') {
+		$banner = get_option('bannersbanner'.$bn);
+	}
+	return $banner;
+}

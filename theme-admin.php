@@ -308,4 +308,8 @@ $TO->add_option('Copyright text','slug=copy&type=text');
 $TO->add_option_group('Categories');
 $TO->add_option('Check Categories','slug=check-cat&type=check-cat');
 
+$TO->add_option_group('Banners');
+$TO->add_option('Banner1','height=7&type=text');
+$TO->add_option('Banner2','height=7&type=text');
+$TO->add_option('Banner3','height=7&type=text');
 ?>
