@@ -44,16 +44,17 @@ if($i == 1)
     $long  = '';
 	$long  = ( $count > 10 && $count < 15 ) ? 'long' : '';
     $long  = $count >= 15 ? 'long2' : '';
+    $thumb_bg = '';
+
+    if(has_post_thumbnail())
+    {
+    	$thumb_bg = sprintf(
+    		'style="background: url(%s) no-repeat; background-size: cover;"',
+    		getThumbnailURL(get_the_ID())
+    	);
+    }
 	?>
-	<article class="hentry featured-post full-width-post">
-		<?php
-		if(has_post_thumbnail())
-		{
-		?>
-			<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail( get_the_ID(), 'full') ?></a>
-		<?php
-		}
-		?>
+	<article class="hentry featured-post full-width-post" <?php echo $thumb_bg; ?>>
 		<div class="center-wrap">
 			<div class="content">
 
@@ -155,7 +156,14 @@ else
 	jQuery(function(){
 		var w = jQuery(window).width();
 		var offset = jQuery('#main').offset();
-		jQuery('.full-width-post').css({'width':w, 'margin-left': -offset.left});
+
+		jQuery('.full-width-post').each(function(){
+			jQuery(this).css({
+				width: w, 
+				'margin-left': -offset.left, 
+				height: jQuery(this).find('.content').height()+200
+			});
+		});
 		
 		jQuery(window).resize(function(){
 			var w = jQuery(window).width();

@@ -656,3 +656,16 @@ function blog_get_banner($bn) {
 	}
 	return $banner;
 }
+
+/**
+ * Get thumbnail url
+ * @param  integer $id  --- post id
+ * @param  string $size --- image seize. Default: full
+ * @return string       --- URL
+ */
+function getThumbnailURL($id, $size = 'full')
+{
+	if(!has_post_thumbnail($id)) return false;
+	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size);
+	return $thumb['0'];
+}
