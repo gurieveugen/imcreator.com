@@ -4005,3 +4005,11 @@ body.page-template-default .main-holder:after, body.single .main-holder:after, b
 	overflow:hidden;
 	margin:10px 0 0 0;
 }
+
+.ol li {
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+    padding-left: 0.5em;
+    list-style-position: outside;
+}
+ 

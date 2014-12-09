@@ -84,7 +84,7 @@ var gaAdsBlocked=true;
 		<![endif]-->
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.sticky.js"></script>					
 		
-		<?php if ( (is_single() && in_category( explode(',', $matrix_cat_str) ) ) || is_category(explode(',', $matrix_cat_str)) || is_tag() ) : ?>
+		<?php if ( (is_single() && in_category( explode(',', $matrix_cat_str) ) ) || is_category(explode(',', $matrix_cat_str)) || is_tag() || is_front_page() ) : ?>
 
 		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/masonry.pkgd.min.js"></script>		
 		<script type="text/javascript">
