@@ -98,7 +98,7 @@ var gaAdsBlocked=true;
 			add_height();
 			jQuery(window).scroll(function() {
                 //if ( jQuery(this).scrollTop() >= (jQuery('.images-box').position().top + jQuery('.images-box').height() - (jQuery(window).height() / 2)) && imgLoading)  {
-				if ((jQuery(window).scrollTop() + jQuery(window).height() == jQuery(document).height()) && imgLoading)  {
+				if ((jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height() - 1000) && imgLoading)  {
                     imgLoading = false;
 					++paged;                                       
                     jQuery('#ajax-loading').show();
@@ -125,7 +125,8 @@ var gaAdsBlocked=true;
 							page: paged,
 							<?php if ( isset($_GET['s']) && strlen( $_GET['s'] ) ) echo "s_val: '". $_GET['s'] ."'" ?>
 						},
-						success: function(data) {                            
+						success: function(data) {   
+							console.log(data.length);                         
 							if (data.length > 0) {
                                 data = data.replace(/class="box"/g, 'class="box hidden"');
                                 newHTML = jQuery(data);

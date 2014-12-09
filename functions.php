@@ -540,7 +540,7 @@ function javascript_page()
 			$cat = $postcats[0]->name;
 		}
 	}
-	if ($cat) { ?>
+	if ($cat || is_front_page()) { ?>
 	<script type="text/javascript">
 	    $(document).ready(function() {
 			var page_number = 2;
@@ -602,6 +602,7 @@ function getMorePostsAJAX()
 	if($paged > $wp_query->max_num_pages) die();
 	$arr['html'] = load_template_part('loop');
 	$arr['loop'] = getLoopRand();
+	$arr['args'] = $args;
 	echo json_encode($arr);
 	die();
 }
